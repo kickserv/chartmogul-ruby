@@ -1,0 +1,5 @@
+source "https://rubygems.org"
+
+gem 'pry'
+gem 'chartmogul-ruby', require: 'chartmogul'
+gem 'awesome_print'
