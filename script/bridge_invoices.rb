@@ -14,54 +14,70 @@ def create_bridge_subscriptions
   # The columns should be filled with the UUIDs of the customers that need a bridge invoice.
 
   # load the list
-  CSV.foreach('bridge.csv', headers: true, converters: :all) do |row|
+  CSV.foreach('prepaid.csv', headers: true, converters: :all) do |row|
     rows << row.to_hash
   end
 
   rows.each do |row|
-    puts "Customer UUID #{row['uuid']}"
-    customer = ChartMogul::Customer.retrieve(row['uuid'])
+    # puts "Customer UUID #{row['uuid']}"
+    puts "Customer email: #{row['email']}"
+
+    customers = ChartMogul::Customer.search(row['email'])
+    if customers.count < 1
+      puts "Found #{customers.count} customers, need to merge"
+      # merge 'em
+    else
+      customer = ChartMogul::Customer.search(row['email']).first
+    end
+    
+    return unless customer
+    ap customer.uuid
 
     plan = row['plan'].downcase || nil
-    puts "Prepaid for #{plan}" unless plan
+    puts "Prepaid for #{plan}: #{row['amount']}"
+    
+    start_date = Date.strptime(row['date'], '%m/%d/%Y') #rescue nil
+    puts "Migrated on #{start_date}"
 
-    start_date = DateTime.parse(row['date']) rescue nil
+    amount = Float(row['amount']) rescue nil
+    puts "Prepaid #{(amount *100).to_i} in cents"
 
-    create_bridge_subscription_for customer, plan, start_date
+    create_bridge_subscription_for customer, plan, start_date, amount
   end
 end
 
-def create_bridge_subscription_for(customer, plan, start_date)
-  prepayment = prepayment_invoice_for(customer)
+def create_bridge_subscription_for(customer, plan, bridge_start_date, amount)
+  # prepayment = prepayment_invoice_for(customer)
   
-  if prepayment.nil?
-    puts "No prepayment found"
-    return
-  end
+  # if prepayment.nil?
+  #   puts "No prepayment found"
+  #   return
+  # end
 
   puts "Adding bridge subscription for #{customer.name}"
   
   # amount of last transaction
-  bridge_amount_in_cents = prepayment.line_items.first.amount_in_cents
-  
-  # date of last transaction
-  bridge_start_date = DateTime.parse(prepayment.date.to_s)
+  # bridge_amount_in_cents = prepayment.line_items.first.amount_in_cents
+  bridge_amount_in_cents = (amount * 100).to_i
+
   bridge_end_date = bridge_start_date.next_year
   
   puts "Start date: #{bridge_start_date}"
   puts "End date: #{bridge_end_date}"
 
   # plan they migrated to
-  bridge_plan_name = if plan.empty?
-    parse_plan_from_description(prepayment.line_items.first.description)
-  else
-    plan.downcase
-  end
+  # bridge_plan_name = if plan.empty?
+  #   parse_plan_from_description(prepayment.line_items.first.description)
+  # else
+  #   plan.downcase
+  # end
+
+  bridge_plan_name = "#{plan.downcase}-prepaid"
   
   bridge_plan_uuid = plan_uuid(bridge_plan_name)
   
   if bridge_plan_uuid.nil?
-    puts "Couldn't find new plan from desc '#{prepayment.line_items.first.description}'"
+    puts "Couldn't find new plan"  # from desc '#{prepayment.line_items.first.description}'"
     return
   end
 
@@ -77,6 +93,9 @@ def create_bridge_subscription_for(customer, plan, start_date)
     #   - 1 year term
     #   - not prorated
     #   - <plan they migrated to>-prepaid
+
+    # puts "Start: #{bridge_start_date}, end: #{bridge_end_date}"
+
     line_item = ChartMogul::LineItems::Subscription.new(
       subscription_external_id: bridge_id,
       plan_uuid: bridge_plan_uuid,
