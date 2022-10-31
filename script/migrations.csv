@@ -1,0 +1,4 @@
+date,name,uuid,email,amount,plan,stripe_link,done,notes
+8/31/2022,Koi Enterprise,cus_d9978035-33d0-4110-b438-42111fda810a,info@koienterprise.com,$178.16,Premium,https://dashboard.stripe.com/customers/cus_JikYcxa67mJCvh,,pre-paid days before his annual renewal (can we discuss this one?)
+9/9/2022,Unwind Soothing Landscapes,cus_fbf3482f-56dc-4214-bbd2-2f07ee1a5e6d,coyotehillrun@gmail.com,$685.20,Standard,https://dashboard.stripe.com/customers/cus_JikUKGy14JZMIv,,
+8/22/2022,Massachusetts Awning,cus_e6942f22-e500-474a-b45a-a1abd3542fa4,vlynch7183@gmail.com,$588.00,Standard,https://dashboard.stripe.com/customers/cus_JikS2wQxit2orR,yes,"has a refund in CM, broken link? Pre-paid for year."

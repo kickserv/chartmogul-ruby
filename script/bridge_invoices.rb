@@ -19,9 +19,6 @@ def create_bridge_subscriptions
   end
 
   rows.each do |row|
-    # puts "Customer UUID #{row['uuid']}"
-    puts "Customer email: #{row['email']}"
-
     customers = ChartMogul::Customer.search(row['email'])
     if customers.count < 1
       puts "Found #{customers.count} customers, need to merge"
@@ -31,7 +28,7 @@ def create_bridge_subscriptions
     end
     
     return unless customer
-    ap customer.uuid
+    puts "Customer: #{customer.name} - #{customer.uuid}"
 
     plan = row['plan'].downcase || nil
     puts "Prepaid for #{plan}: #{row['amount']}"
@@ -39,8 +36,8 @@ def create_bridge_subscriptions
     start_date = Date.strptime(row['date'], '%m/%d/%Y') #rescue nil
     puts "Migrated on #{start_date}"
 
-    amount = Float(row['amount']) rescue nil
-    puts "Prepaid #{(amount *100).to_i} in cents"
+    amount = Float(row['amount'].gsub('$', '')) rescue nil
+    puts "Prepaid #{(amount * 100).to_i} in cents"
 
     create_bridge_subscription_for customer, plan, start_date, amount
   end
@@ -127,8 +124,8 @@ def create_bridge_subscription_for(customer, plan, bridge_start_date, amount)
     customer_uuid: customer.uuid, 
     invoices: [invoice])
   
-  # add the `connected` tag
-  customer.add_tags! 'connected'
+  # add the `bridged` tag
+  customer.add_tags! 'bridged'
 end
 
 # LOCK IN SELECTOR

@@ -16,7 +16,7 @@ def connect_subscriptions
   rows = []
 
   # A file named 'connectable.csv' must exist with column headers.
-  # # The columns should be filled with the UUIDs of the customers that need subscriptions connected.
+  # Column headers: date,name,uuid,email,amount,plan,stripe_link,done,notes
   CSV.foreach('connectable.csv', headers: true, converters: :all) do |row|
     rows << row.to_hash
   end
@@ -24,8 +24,22 @@ def connect_subscriptions
   successes = skips = failures = 0
 
   rows.each do |row|
-    customer = ChartMogul::Customer.retrieve(row['uuid'])
-    
+    customer = unless row['uuid'].empty?
+      ChartMogul::Customer.retrieve(row['uuid'])
+    else
+      customers = ChartMogul::Customer.search(row['email'])
+      
+      if customers.count < 1
+        puts "Found #{customers.count} customers, need to merge"
+        # merge 'em
+      else
+        customer = ChartMogul::Customer.search(row['email']).first
+      end
+    end
+
+    return unless customer
+
+    puts "Connecting subscriptions for #{customer.name} - #{customer.uuid}"
     result = connect_subscriptions_for(customer)
     
     case result
