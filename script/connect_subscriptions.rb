@@ -17,7 +17,7 @@ def connect_subscriptions
 
   # A file named 'connectable.csv' must exist with column headers.
   # Column headers: date,name,uuid,email,amount,plan,stripe_link,done,notes
-  CSV.foreach('connectable.csv', headers: true, converters: :all) do |row|
+  CSV.foreach('migrations.csv', headers: true, converters: :all) do |row|
     rows << row.to_hash
   end
 

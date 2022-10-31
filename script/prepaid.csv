@@ -1,6 +1,0 @@
-date,name,uuid,email,amount,plan,stripe_link,done,notes
-9/8/2022,Green Valley Pest Control Corp.,cus_3bbb47f1-3e4e-4f2b-b1ef-7466603a6dd9,ecofriendlygreenvalleypest@gmail.com,$321.00,Business,https://dashboard.stripe.com/customers/cus_JikRfwgMvIHegi,,Renew 10/29
-8/25/2022,Neighborhood Carpet Care,cus_05800509-413e-4648-80eb-c9b14433deab,ken.cheeseman@gmail.com,$348.00,Lite,https://dashboard.stripe.com/customers/cus_JikQ4dNeTZJWMN,,M to A $29
-9/5/2022,Darren Lin of A Plus Computer Tech,cus_02ea0eb7-8e4f-40c2-9d30-dbcdf3a04039,darren@apluscomputertech.com,$566.00,Lite,https://dashboard.stripe.com/customers/cus_JijmPnD5BAAoDE,,invoice them in Sept. We were just getting started. We do payments now.
-10/4/2022,TD Concrete Leveling LLC.,cus_3a15b198-4aef-4ee0-b144-45863ef4fd6b,tdleveling@gmail.com,$319.00,Lite,https://dashboard.stripe.com/customers/cus_JikPeDY38QDvcD,,Invoice in Sept. 
-8/31/2022,Cleanest Group,cus_57b57d66-86a0-4416-b397-8112146c482a,service@noosaprestige.com.au,$564.30,Standard,https://dashboard.stripe.com/customers/cus_JikP3bBAUSQdSp,,

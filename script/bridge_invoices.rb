@@ -14,7 +14,7 @@ def create_bridge_subscriptions
   # The columns should be filled with the UUIDs of the customers that need a bridge invoice.
 
   # load the list
-  CSV.foreach('prepaid.csv', headers: true, converters: :all) do |row|
+  CSV.foreach('migrations.csv', headers: true, converters: :all) do |row|
     rows << row.to_hash
   end
 
