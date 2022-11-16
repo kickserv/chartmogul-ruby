@@ -28,18 +28,23 @@ def create_bridge_subscriptions
     end
     
     return unless customer
+
     puts "Customer: #{customer.name} - #{customer.uuid}"
-
-    plan = row['plan'].downcase || nil
-    puts "Prepaid for #{plan}: #{row['amount']}"
     
-    start_date = Date.strptime(row['date'], '%m/%d/%Y') #rescue nil
-    puts "Migrated on #{start_date}"
+    if skip_customer?(customer)
+      puts "Skipped, already bridged"
+    else
+      plan = row['plan'].downcase || nil
+      puts "Prepaid for #{plan}: #{row['amount']}"
+      
+      start_date = Date.strptime(row['date'], '%m/%d/%Y') #rescue nil
+      puts "Migrated on #{start_date}"
 
-    amount = Float(row['amount'].gsub('$', '')) rescue nil
-    puts "Prepaid #{(amount * 100).to_i} in cents"
+      amount = Float(row['amount']) rescue nil
+      puts "Prepaid #{(amount * 100).to_i} in cents"
 
-    create_bridge_subscription_for customer, plan, start_date, amount
+      create_bridge_subscription_for customer, plan, start_date, amount
+    end
   end
 end
 
@@ -128,7 +133,22 @@ def create_bridge_subscription_for(customer, plan, bridge_start_date, amount)
   customer.add_tags! 'bridged'
 end
 
-# LOCK IN SELECTOR
+def plan_uuid(plan_name)
+  plans = {
+    'lite-prepaid' => 'pl_c7ca6322-4423-11ed-8289-1b0661c76c71',
+    'standard-prepaid' => 'pl_3074acbc-43f6-11ed-ab7b-179db34f8e67',
+    'business-prepaid' => 'pl_ef6ce5b6-43f7-11ed-9767-1bd1b969424f',
+    'premium-prepaid' => 'pl_b5f60f66-4423-11ed-9698-e7d6d8728aff'
+  }
+
+  plans[plan_name]
+end
+
+def skip_customer?(customer)
+  customer.tags.include?('bridged')
+end
+
+# LOCK IN SELECTOR (Unused)
 # Returns an invoice for an annual lock-in payment.
 # Looks for a one-time invoice created after 7/1/22 containing a line item with "lock" in the description.
 def prepayment_invoice_for(customer)
@@ -139,6 +159,7 @@ def prepayment_invoice_for(customer)
   invoice if invoice && invoice.date > Time.parse('2022-07-01')
 end
 
+#Unused
 def parse_plan_from_description(desc)
   desc.downcase!
   
@@ -148,17 +169,6 @@ def parse_plan_from_description(desc)
   end 
   
   found_plan += '-prepaid' unless found_plan.empty?
-end
-
-def plan_uuid(plan_name)
-  plans = {
-    'lite-prepaid' => 'pl_c7ca6322-4423-11ed-8289-1b0661c76c71',
-    'standard-prepaid' => 'pl_3074acbc-43f6-11ed-ab7b-179db34f8e67',
-    'business-prepaid' => 'pl_ef6ce5b6-43f7-11ed-9767-1bd1b969424f',
-    'premium-prepaid' => 'pl_b5f60f66-4423-11ed-9698-e7d6d8728aff'
-  }
-
-  plans[plan_name]
 end
 
 create_bridge_subscriptions

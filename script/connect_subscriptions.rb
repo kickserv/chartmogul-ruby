@@ -24,11 +24,10 @@ def connect_subscriptions
   successes = skips = failures = 0
 
   rows.each do |row|
-    customer = unless row['uuid'].empty?
+    customer = if row['uuid']
       ChartMogul::Customer.retrieve(row['uuid'])
     else
       customers = ChartMogul::Customer.search(row['email'])
-      
       if customers.count < 1
         puts "Found #{customers.count} customers, need to merge"
         # merge 'em
@@ -38,7 +37,7 @@ def connect_subscriptions
     end
 
     return unless customer
-
+    ap customer
     puts "Connecting subscriptions for #{customer.name} - #{customer.uuid}"
     result = connect_subscriptions_for(customer)
     
@@ -62,8 +61,6 @@ def connect_subscriptions
 end
 
 def connect_subscriptions_for(customer)
-  puts "Connecting subscriptions for #{customer.name} - #{customer.uuid}"
-  
   if skip_customer?(customer)
     puts "Skipped"
     result = :skipped
@@ -110,6 +107,7 @@ def remove_trial_chargify_subscription(subscriptions, ds_uuid, external_id)
 end
 
 def skip_customer?(customer)
+  return true unless customer
   customer.tags.include?('connected') ||
   @emails_to_skip.include?(customer.email)
 end
