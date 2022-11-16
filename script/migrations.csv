@@ -1,25 +1,10 @@
 date,name,uuid,email,amount,plan,stripe_link,done,notes
-11/1/2022,Phoenix Appliance Services,,smithappliance@gmail.com,59,Lite,,,
-11/1/2022,Murphy's Upholstery,,tony@murphysupholstery.com,59,Lite,,,
-11/1/2022,Pest Busters Sydney,,dirtbustersandpestcontrol@yahoo.com.au,59,lite,,,
-11/1/2022,Pride Locksmith,,Pridelocksmith@comcast.net,59,Lite,,,
-11/1/2022,Infinity Heating and Air,,infinity.air@yahoo.com,59,Lite,,,
-11/1/2022,Multitest,,guillaume.des.rosiers@ridgebase.com,199,Business,,,
-11/1/2022,Midlands Storage Systems,,sales@midlandsstoragesystems.com,59,Lite,,,
-11/1/2022,"ATS Environmental Services, LLC",,kcorreal@atsenvironmental.com,349,Premium,,,
-11/1/2022,Skyfit Inc,,carola@skyfittech.com,119,Standard,,,
-11/1/2022,Versatech Systems Inc,,sbailey@versatechsystems.com,59,Lite,,,
-11/1/2022,Friendly Giant Window & Gutter Cleaning,,chelseavanda@gmail.com,199,Business,,,
-11/1/2022,TS Maintenance LLC,,Adrianeller1@gmail.com,59,Lite,,,
-11/1/2022,1st Source Sheet Metal LLC,,tx.1stsource@yahoo.com,169,Standard,,,
-11/1/2022,Miracle Method Southeastern NC,,servicesidekick@miraclemethod.com,169,Standard,,,
-11/1/2022,REDi,,calsteamclean@yahoo.com,349,Premium,,,
-11/1/2022,Siltworm Inc.,,dj@siltworm.com,299,Premium,,,
-11/1/2022,Raye Le Construction and Services LLC,,totalhandymansc@yahoo.com,119,Standard,,,
-11/1/2022,Soulhouses LLC,,soulhouses@gmail.com,59,Lite,,,
-11/1/2022,The Spray Foam Co. of Pittsburgh,,thesprayfoamco@gmail.com,59,Lite,,,
-11/1/2022,Metrolocks,,info@metrolocksdenver.com,119,Standard,,,
-11/1/2022,O'City Garage Doors,,mackenzie@acegargedoorok.com,59,Lite,,,
-11/1/2022,International Maintenance & Janitorial,,jhwang1130@gmail.com,199,Business,,,
-11/1/2022,"Becks Plumbing, Inc.",,becksplumb@aol.com,169,Standard,,,
-11/1/2022,"Mereo Networks, a Highway 89 Company",,coshaughnessy@broadbandholdingsonline.com,199,Business,,,
+9/12/2022,Fasolino Rain by Design Irrigation,cus_c0343100-f23c-4747-befa-75c5256d37b1,leeann@fasland.net,645.06,Premium
+9/8/2022,Garage Equipment,cus_ea58a9e7-7c21-4308-a63c-d990e30e5906,garageeq@gmail.com,321,Lite
+9/14/2022,PRM ENTERPRISES,cus_805bc654-c591-4496-93ad-d78167f4e356,rmilnes@inex.com,1424,Standard
+11/1/2022,Watermanagement Services Corp,cus_e862744a-f94d-4ff8-ad8f-3b752f57dcba,watermanagement@hotmail.com,588,Standard
+10/11/2022,Caliber Air Repair Furnace & Duct Cleaning,cus_4776fc44-0cfd-4227-8f47-512dad57f4ea,info@caliberair.ca,180,Standard
+9/30/2022,Engineered Pest Solutions,cus_68071207-5f4a-4bfa-a152-3086a02b7147,denglish@engineeredpestsolutions.com,333,Lite
+10/3/2022,Lewis Natural Landscapes,cus_8ca6f17d-a145-4056-86f9-1e037f795366,rob@lewisnaturallandscapes.com,451.1,Lite
+10/24/2022,Alpha Appliance Service,cus_2c0bc9f8-e58f-41b6-beec-b9492b5f265d,kevin@alpha-appliance.com,348,Standard
+9/16/2022,Johnson and Sons Plumbing and Pipeworks LLC,cus_eb773013-2a4f-49d9-9899-d768fcc5f5cf,pipeworksboise@gmail.com,666.2,Standard
