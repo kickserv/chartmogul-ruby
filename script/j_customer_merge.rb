@@ -32,14 +32,20 @@ def merge_duplicates
 		# end
 
 		puts "Merging #{row}"
-		ap row["from_uuid"]
+		# ap "From: #{row["from_uuid"]}" 
+		# ap "To: #{row["into_uuid"]}" 
 
 		begin
 			# Start merge ---
 			from_customer = ChartMogul::Customer.retrieve(row["from_uuid"])
 			
+			# ap from_customer
+
 			# Use the Stripe one if available
 			into_customer = ChartMogul::Customer.retrieve(row["into_uuid"])
+
+			# ap into_customer
+
 		rescue ChartMogul::NotFoundError
 			puts "Missing customer"
 			next

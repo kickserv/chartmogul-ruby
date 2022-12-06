@@ -1,10 +1,21 @@
-date,name,uuid,email,amount,plan,stripe_link,done,notes
-9/12/2022,Fasolino Rain by Design Irrigation,cus_c0343100-f23c-4747-befa-75c5256d37b1,leeann@fasland.net,645.06,Premium
-9/8/2022,Garage Equipment,cus_ea58a9e7-7c21-4308-a63c-d990e30e5906,garageeq@gmail.com,321,Lite
-9/14/2022,PRM ENTERPRISES,cus_805bc654-c591-4496-93ad-d78167f4e356,rmilnes@inex.com,1424,Standard
-11/1/2022,Watermanagement Services Corp,cus_e862744a-f94d-4ff8-ad8f-3b752f57dcba,watermanagement@hotmail.com,588,Standard
-10/11/2022,Caliber Air Repair Furnace & Duct Cleaning,cus_4776fc44-0cfd-4227-8f47-512dad57f4ea,info@caliberair.ca,180,Standard
-9/30/2022,Engineered Pest Solutions,cus_68071207-5f4a-4bfa-a152-3086a02b7147,denglish@engineeredpestsolutions.com,333,Lite
-10/3/2022,Lewis Natural Landscapes,cus_8ca6f17d-a145-4056-86f9-1e037f795366,rob@lewisnaturallandscapes.com,451.1,Lite
-10/24/2022,Alpha Appliance Service,cus_2c0bc9f8-e58f-41b6-beec-b9492b5f265d,kevin@alpha-appliance.com,348,Standard
-9/16/2022,Johnson and Sons Plumbing and Pipeworks LLC,cus_eb773013-2a4f-49d9-9899-d768fcc5f5cf,pipeworksboise@gmail.com,666.2,Standard
+date,name,uuid,email,amount,plan,stripe_link,done,notes,date,name,uuid,email,amount,plan,stripe_link,done,notes
+10/12/2022,Joshua Warner,cus_KWWavytn0TzS9G,josh@warner2.net,341,Lite,,,Lock In,,,,,,,,,
+10/12/2022,Spectrum Sports Intl,cus_Lv72txI84MmDyT,jordon@spectrumsports.com,331.68,Business,,,,,,,,,,,,
+10/24/2022,Wehoneydo.com Service Companies,cus_JikOb60RPsVvfM,eric@wehoneydo.com,616,Business,,,,,,,,,,,,
+10/27/2022,Dental Repair Services,cus_JvOtwpawEFOkyF,support@dentalrepairservicesllc.com,875,Standard,,,with QBD,,,,,,,,,
+10/28/2022,Boyle's Aluminum and Screening,cus_JikZpaqdQyzGXC,craig@boylesaluminum.com,1180.08,Business,,,,,,,,,,,,
+11/4/2022,Metro Mobile Wash,cus_JikBux7RnZpXy1,accounts@metromobilewash.ca,1828,Premium,,,,,,,,,,,,
+11/23/2022,Pest Control Pro,cus_JikQoF02bzh7G7,pestproinfo@gmail.com,2008.17,Premium,,,,,,,,,,,,
+11/1/2022,Entry Systems,cus_JikQveaaZCEhsG,billing@entry-systems.com,1780,Business,,,,,,,,,,,,
+11/8/1999,Ring and Ping Inc.,cus_Jijhf2ZvVtMhf6,toby@ringandping.com,708,Business,,,,,,,,,,,,
+11/8/2022,Raye Le Construction and Services LLC,cus_JijhSwiAQ770oI,totalhandymansc@yahoo.com,598.3,Standard,,,,,,,,,,,,
+11/1/2022,Watermanagement Services Corp,cus_Jijl9DF8qOqUGL,watermanagement@hotmail.com,588,Standard,,,,,,,,,,,,
+11/8/2022,Total Property Maintenance,cus_JijmRb8QwTJpAH,gus@tpmmaintenance.com,566.4,Standard,,,,,,,,,,,,
+11/7/2022,Soulhouses LLC,cus_JmOLJdKUOiwoPO,soulhouses@gmail.com,511.43,Standard,,,,,,,,,,,,
+11/2/2022,Aztech Mechanical AZROC 288067,cus_JikQG9z1vszXFX,aztechac@yahoo.com,420,Standard,,,,,,,,,,,,
+11/10/2022,Milestone Services,cus_JikQal58McvokO,Milestonemobile@gmail.com,367.65,Premium,,,,,,,,,,,,
+11/2/2022,CHS Pressure Washing,cus_JijosyOfa1fQkV,chspressurewash@gmail.com,340.24,Lite,,,,,,,,,,,,
+11/22/2022,KC Mold Guys,cus_Jiji7O0TpyxPGG,miketroyer@moldmanusa.com,340,Standard,,,,,,,,,,,,
+11/22/2022,Magic Touch Cleaning Service,cus_Jik6VphLbEiJvT,customerservice@magictouchct.com,308,Standard,,,,,,,,,,,,
+11/16/2022,Egcorner Enterprises Corp,cus_Jijl6hdP4rvZPr,egailans@egcorner.com,405.96,Premium,,,,,,,,,,,,
+11/15/2022,SofTech Computers,cus_JikP2YGNRmAYK9,dustin@softechcomputers.com,119,Standard,,,They cancelled for 11/15/23 and yes they were only paying $10 per month,,,,,,,,,
