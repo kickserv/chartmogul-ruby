@@ -20,7 +20,7 @@ def create_bridge_subscriptions
 
   rows.each do |row|
     customers = ChartMogul::Customer.search(row['email'])
-    if customers.count < 1
+    if customers.count > 1
       puts "Found #{customers.count} customers, need to merge"
       # merge 'em
     else
